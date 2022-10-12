@@ -1,0 +1,27 @@
+.foot {
+    font-size: small;
+    font-weight: 400;
+    color: #ffffff;
+    padding: 1rem;
+    height: auto;
+}
+
+.redScale {
+    height: 30px;
+    width: 30px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.redScale:hover {
+    transition: opacity 0.9s ease-in-out;
+    opacity: 0.5;
+}
+
+.linkFooter {
+    color: #ffffff;
+    text-decoration: none; }
+
+.titleFooter {
+    color: rgb(28, 213, 108);
+}
