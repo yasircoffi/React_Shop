@@ -1,11 +1,10 @@
-import React from "react";
 import {useState} from "react";
 import "./button.css"
 
-function Button(props) {
+export default function Button(props) {
 
     const [colorBtn, SetColorBtn] = useState({
-        backgroundColor: "rgb(95,50,150)",
+        backgroundColor: "#222",
     });
 
 
@@ -14,8 +13,9 @@ function handleClick(){
 }
 
 return (
-    <button onClick={handleClick} skyle={colorBtn} className="btnAdd">{props.children}</button>
+    <button onClick={props.onClick} 
+    style={colorBtn} 
+    className="btnAdd">
+        {props.children}</button>
 );
-}
-
-export default Button;
+}   

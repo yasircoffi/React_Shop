@@ -4,7 +4,7 @@ const data = [
         img: "https://m.media-amazon.com/images/I/81c7dvBvkBL._AC_SX679_.jpg",
         title: "Commander Deck - The Ruinous Powers",
         detail: "Magic: The Gathering Universes Beyond: Warhammer 40,000",
-        price: "24.500",
+        price: 24500,
         content: "Sobre este artículo Baraja Warhammer 40.000 Commander lista para jugar de 100 cartas: The Ruinous Powers Baraja de caos azul-negro-rojo: contiene 2 legendarias cartas tradicionales de aluminio + 98 tarjetas sin papel de aluminio Cada tarjeta cuenta con arte temático de Warhammer, incluyendo 42 cartas que son nuevas en Magic 1 Display Commander grabado con lámina 10 fichas de doble cara, 1 rastreador de vida y 1 caja de cubierta Controla un nuevo campo de batalla en los épicos juegos de magia multijugador ambientados en el mundo del popular juego de miniaturas de mesa, Warhammer 40.000",
         category: "commander",
         available: true,
@@ -16,7 +16,7 @@ const data = [
         img: "https://m.media-amazon.com/images/I/81Lzvhy2IgL._AC_SX679_.jpg",
         title: "Commander Deck - Tyranid Swarm",
         detail: "Magic: The Gathering Universes Beyond: Warhammer 40,000",
-        price: "24.500",
+        price: 24.500,
         content: "Sobre este artículo Baraja de Warhammer 40.000 Commander lista para jugar de 100 cartas, Tyranid Swarm Baraja verde-azul-roja: contiene 2 legendarias cartas tradicionales + 98 tarjetas sin papel de aluminio Cada tarjeta cuenta con arte temático de Warhammer, incluyendo 42 cartas que son nuevas en Magic 1 Display Commander grabado con lámina 10 fichas de doble cara, 1 rastreador de vida y 1 caja de cubierta Controla un nuevo campo de batalla en los épicos juegos de magia multijugador ambientados en el mundo del popular juego de guerra de mesa, Warhammer 40.000",
         category: "commander",
         available: true,
@@ -341,12 +341,16 @@ export function getProducts() {
 }
 
 export function getSingleProduct(idParams) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         let productReq = data.find((item) => {
            return item.id === Number(idParams);
         })
         console.log(idParams)
-        setTimeout(() => resolve(productReq), 500);
+        setTimeout(() => {
+            if (productReq === undefined)
+            reject(new Error ("No se pudo encontrar el producto"))
+            else {resolve(productReq)}
+            }, 1500);
     });
 }
 

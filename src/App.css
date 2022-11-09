@@ -23,6 +23,14 @@
   color: #61dafb;
 }
 
+.slide-item {
+  background-color: black;
+  color: aliceblue;
+    text-shadow: 2px 2px 3px #000000;  font-size: small;
+  font-weight: 400;
+  font-size: medium;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

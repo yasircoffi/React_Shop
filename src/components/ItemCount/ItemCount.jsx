@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Button from "../Button/Button"
 import "./itemcount.css";
 
-export default function ItemCount({ stock, initial, text }) {
+export default function ItemCount({ stock, initial, text, onAddToCart }) {
   const [count, setCount] = useState(initial);
 
   function handleSubstract() {
@@ -17,7 +18,7 @@ export default function ItemCount({ stock, initial, text }) {
       <button className="counterinput" onClick={handleSubstract}>-</button>
       <p className="counternumber"> {count}</p>
       <button className="counterinput" onClick={handleAdd}>+</button>
-      <button className="counterbutton">{text}</button>
+      <Button onClick={()=> { onAddToCart(count)}} className="counterbutton">{text}</Button>
     </div>
   );
   }

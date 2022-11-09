@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import { getProducts, getProductByCategory } from "../../mockAPI/mockAPI";
+import { getProducts, getProductByCategory } from "../../services/firebase";
 import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 function ItemListContainer(props) {
     const [productsList, setproductsList] = useState([]);
+    const [isLoading, setIsLoading] = useState (true);
     const { categoryID } = useParams();
 
     useEffect(() => {
+        setproductsList([])
         if (categoryID === undefined) {
             getProducts().then((data) => {
                 console.log("getProducts");
@@ -20,11 +23,15 @@ function ItemListContainer(props) {
             })
         }
     }, [categoryID]);
-
     return (
+        <>
         <div className="container">
-            <ItemList productsList={productsList} />
+            {productsList.length ? <ItemList productsList={productsList} />
+              :<Loader/>
+              }
+             
         </div>
+        </>
     );
 }
 

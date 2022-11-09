@@ -1,8 +1,11 @@
 import React from "react";
 import CartWidget from "./CartWidget";
 import {Link} from "react-router-dom";
+import { useContext } from 'react';
+import { cartContext} from '../../context/cartContext';
 
 function NavBar() {
+    const { getTotalItemCount} =useContext(cartContext);
     return (
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container px-4 px-lg-5">
@@ -12,7 +15,7 @@ function NavBar() {
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><Link className="nav-link" to="/">Inicio</Link></li>
                         <li class="nav-item"><Link className="nav-link" to="/envios">Envios</Link></li>
-                        <li class="nav-item"><Link className="nav-link" to="/contacto">Contacto</Link></li>
+                        <li class="nav-item"><Link className="nav-link" to="/contact">Contacto</Link></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -33,12 +36,12 @@ function NavBar() {
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
+                        <Link to="/cart"><button class="btn btn-outline-dark" type="submit">
                             <CartWidget />
-                            <i class="bi-cart-fill me-1"></i>
+                            <i className="bi-cart-fill me-1"></i>
                             Carrito
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
+                            <span className="badge bg-dark text-white ms-1 rounded-pill">{getTotalItemCount() > 0 && getTotalItemCount ()}</span>
+                        </button></Link>
                     </form>
                 </div>
             </div>

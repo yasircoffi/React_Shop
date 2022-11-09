@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from "react";
 import CardDetail from "./CardDetail";
-import { getSingleProduct } from "../../mockAPI/mockAPI";
+import { getSingleProduct } from "../../services/firebase";
 import { useParams } from "react-router-dom";
 
 function ItemDetailContainer(props) {
-    const [product, setproduct] = useState([]);
+    const [product, setproduct] = useState({});
+    const [feedbackMsg, setFeedbackMsg] = useState (null);
     const { itemID } = useParams();
 
     useEffect(
         () => {
             getSingleProduct(itemID).then((data) => {
                 setproduct(data);
+            }).catch((error)=>{
+                setFeedbackMsg(error.message);
             });
-        }, [itemID])
+        }, [itemID]);   
         
     return (
+        <>
+        { feedbackMsg !== null ? <h4>Error: {feedbackMsg}</h4> :
         <CardDetail
         key={product.id}
         title={product.title}
@@ -25,7 +30,8 @@ function ItemDetailContainer(props) {
         categoryID={product.category}
         available={product.available}
         stock={product.stock}
-        />
+        />}
+     </>
     );
 }
 
