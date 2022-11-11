@@ -8,9 +8,10 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import 'sweetalert2/src/sweetalert2.scss';
 
 function CartView() {
-    const { cart, removeItem, getTotalPrice } = useContext(cartContext);
+    const { cart, removeItem, getTotalPrice, cleanCart } = useContext(cartContext);
     const navigate = useNavigate();
-    function handleCheckout(params) {
+    
+    function handleCheckout() {
     const buyerData = {
         name: "Santiago",
         email: "salkinsantiago@gmail.com",
@@ -27,11 +28,12 @@ function CartView() {
     createBuyOrder(orderData).then(respuesta => {
         Swal.fire({
             title: 'Compra Exitosa',
-            text: 'Gracias por tu compra, en breve te llegara un mail con la confirmacion y datos de tu compra',
+            text: 'Gracias por tu compra, en breve te enviaremos un mail con la confirmacion y datos de tu compra',
             icon: 'cool',
             confirmButtonText: 'Ok'
           }).then(result => {
             navigate(`/checkout/${respuesta}`);
+            cleanCart();
           });
     });
 }
@@ -90,7 +92,7 @@ function CartView() {
      <h4 className="card-title">Precio Total de la Compra: <strong>${getTotalPrice()}</strong></h4>
         <Button onClick={handleCheckout}>Finalizar Compra</Button>
         <hr></hr>
-        <p>Vaciar Carrito</p>
+        <p className="btnClean" onClick={cleanCart}>Vaciar Carrito</p>
         <Button><Link className="linkstyle" to="/">Seguir Comprando</Link></Button>
         <br></br>
         <br></br>

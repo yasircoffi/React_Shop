@@ -9,7 +9,7 @@ function NavBar() {
     return (
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand"><img src="https://i.im.ge/2022/10/09/1GyrXJ.logo.webp" alt="Logo DRAFT Store" height={80}/></a>
+                <img src="https://i.im.ge/2022/10/09/1GyrXJ.logo.webp" alt="Logo DRAFT Store" height={80}/>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">

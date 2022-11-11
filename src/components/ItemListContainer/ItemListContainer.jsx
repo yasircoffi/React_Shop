@@ -6,7 +6,6 @@ import Loader from "../Loader/Loader";
 
 function ItemListContainer(props) {
     const [productsList, setproductsList] = useState([]);
-    const [isLoading, setIsLoading] = useState (true);
     const { categoryID } = useParams();
 
     useEffect(() => {

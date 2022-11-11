@@ -9,3 +9,9 @@
     color: #fff;
     text-decoration-line: none
 }
+
+.btnClean:hover {
+ color: black;
+ cursor: pointer;
+ opacity: 85%;
+}

@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc, documentId, writeBatch } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc } from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -16,28 +16,10 @@ const firebaseConfig = {
 const FirebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(FirebaseApp);
 
-export async function createBuyOrder(orderData){
-    
-    const batch = writeBatch(db);
-    const collectionRef = collection(db, "ordenes");
-    const collectionItemsRef = collection(db, "productos");
-    
-    const arrayIds = orderData.cart.map((item) => item.id);
-    const q = query(collectionItemsRef, where(documentId(), "in", arrayIds));
-    
-    let itemsToUpdate = await getDocs(q);
-    
-    itemsToUpdate.docs.forEach( doc => {
-      let itemInCart = orderData.cart.find( item=> item.id === doc.id)
-        batch.update(doc.ref, {
-            stock: doc.data().stock - itemInCart.count
-        })
-    })
-    
-batch.commit();
+export async function createBuyOrder (orderData){
+    const collectionRef = collection (db, "ordenes");
     let respuesta = await addDoc(collectionRef, orderData)
-
-    return respuesta.id;
+    console.log(respuesta)
 }
 
 export async function getProducts() {
@@ -52,15 +34,6 @@ export async function getProducts() {
 return dataProducts;
 }
 
-export async function sendDataToFirebase(){
-    const data = [];
-    let itemsCollectionRef = collection(db, "productos")
-    for(let product of data){
-        delete(product.id)
-let newDoc = await addDoc (itemsCollectionRef, product)
-console.log("Documento creado: ", newDoc.id)
-    }
-}
 
 export async function getSingleProduct(idParams) {
    const docRef = doc(db, "productos", idParams);

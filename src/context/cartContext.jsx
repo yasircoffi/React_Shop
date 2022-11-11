@@ -26,10 +26,9 @@ function removeItem(itemToRemove) {
     setCart(newCart);
 }
 
-function cleanCart() {
-    let newCart = cart.delete(itemInCart => itemInCart.title);
+function cleanCart(itemToRemove) {
+    let newCart = cart.filter((itemInCart) => itemInCart.title === itemToRemove);
     setCart(newCart);
-    return (newCart);
 }
 
     function getTotalItemCount() {
