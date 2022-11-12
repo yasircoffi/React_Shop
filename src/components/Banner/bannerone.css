@@ -35,6 +35,11 @@
 
 @media only screen and (max-width: 1200px) {
 
+    .backSliderOne {
+        height: 250px;
+        background-attachment: local;
+    }
+
     .detailSliderOne {
         display: none;
     }
@@ -48,7 +53,7 @@
     }
 
     .imageSliderOne {
-        width: auto;
+        display:none;
     }
 
     .detailSliderOne {
