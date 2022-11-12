@@ -1,8 +1,7 @@
-import React from 'react';
+import React from 'react'
 import { Ring } from '@uiball/loaders'
 
-
-function Loader() {
+export default function Loader() {
   return (
    <>
     <Ring 
@@ -13,6 +12,4 @@ function Loader() {
    />
    </>
   )
-}
-
-export default Loader
+};
