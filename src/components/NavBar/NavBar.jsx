@@ -17,7 +17,7 @@ function NavBar() {
                         <li class="nav-item"><Link className="nav-link" to="/envios">Envios</Link></li>
                         <li class="nav-item"><Link className="nav-link" to="/contact">Contacto</Link></li>
                         <li class="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
+                            <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="null">Categorias</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><Link className="dropdown-item" to="/">Todos los Productos</Link></li>
                                 <li><hr className="dropdown-divider" /></li>
