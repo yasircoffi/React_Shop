@@ -2,13 +2,12 @@
   
 
 <div align="center">
-<img src="https://iili.io/ycqXiN.png" align="center" height="" width="600" />
+<img src="https://i.ibb.co/64Bk6ZN/localhost-3000-Nest-Hub-2.png" alt="localhost-3000-Nest-Hub-2" height="" width="600" />
 </div>  
   
 
-### <div align="center"> [Ver Sitio Online](http://example/com)</div>  
+### <div align="center"> [Ver Sitio Online](https://draftstore.netlify.app/)</div>  
   
-
 
 
 ### En el directorio del proyecto, puede ejecutar:  

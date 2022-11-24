@@ -35,7 +35,7 @@ function NavBar() {
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
+                    <form class="c-flex">
                         <Link to="/cart"><button class="btn btn-outline-dark" type="submit">
                             <CartWidget />
                             <i className="bi-cart-fill me-1"></i>

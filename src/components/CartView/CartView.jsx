@@ -30,9 +30,9 @@ function CartView() {
             title: 'Compra Exitosa',
             text: 'Gracias por tu compra, en breve te enviaremos un mail con la confirmacion y datos de tu compra',
             icon: 'cool',
-            confirmButtonText: 'Ok'
+           confirmButtonText: 'Ok'
           }).then(result => {
-            navigate(`/checkout/${respuesta}`);
+            navigate("/");
             cleanCart();
           });
     });
@@ -41,10 +41,10 @@ function CartView() {
     if (cart.length === 0) { return <div className='container-responsive'><div className='ml-3 d-inline-block align-middle'><br></br><h3>El Carrito esta Vacio!</h3><Button><Link className="linkstyle" to="/">Ir de Compras</Link></Button><br></br><hr></hr></div></div>
     }
     return <div class="pb-5">{cart.map(producto => (
-        <div class="container">
+        <div class="container-responsive">
             <div class="row">
                 <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
-                    <div class="table-responsive">
+                    <div class="table">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -90,6 +90,7 @@ function CartView() {
     <div class="container">
         <div className='ml-3 d-inline-block align-middle'>
      <h4 className="card-title">Precio Total de la Compra: <strong>${getTotalPrice()}</strong></h4>
+     <br/>
         <Button onClick={handleCheckout}>Finalizar Compra</Button>
         <hr></hr>
         <p className="btnClean" onClick={cleanCart}>Vaciar Carrito</p>

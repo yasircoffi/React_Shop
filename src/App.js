@@ -28,6 +28,7 @@ function App() {
           <Route path='/product/:itemID' element={<ItemDetailContainer />} />
           <Route path='/category/:categoryID' element={<ItemListContainer />} />
           <Route path='/cart' element={<CartView/>}/>
+          <Route path="*" element={<h3>El producto o contenido no existe o ha sido eliminado</h3>} />
         </Routes>
 
         <footer className="py-5 bg-black">
